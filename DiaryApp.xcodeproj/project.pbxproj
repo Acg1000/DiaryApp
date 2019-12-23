@@ -13,7 +13,6 @@
 		FB56897A23AD70510083C5C1 /* DiaryApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB56897823AD70510083C5C1 /* DiaryApp.xcdatamodeld */; };
 		FB56897C23AD70520083C5C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB56897B23AD70520083C5C1 /* Assets.xcassets */; };
 		FB56897F23AD70520083C5C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB56897D23AD70520083C5C1 /* LaunchScreen.storyboard */; };
-		FB56898C23AD727E0083C5C1 /* CreateEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56898B23AD727E0083C5C1 /* CreateEntryController.swift */; };
 		FB56898E23AD79600083C5C1 /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56898D23AD79600083C5C1 /* MainPageController.swift */; };
 		FB56899023AD7B9A0083C5C1 /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56898F23AD7B9A0083C5C1 /* EntryCell.swift */; };
 		FB56899523AD81760083C5C1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56899423AD81760083C5C1 /* CoreDataStack.swift */; };
@@ -22,6 +21,8 @@
 		FB56899B23AEAF3A0083C5C1 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56899A23AEAF3A0083C5C1 /* Status.swift */; };
 		FB56899D23AEB5840083C5C1 /* EntriesFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56899C23AEB5840083C5C1 /* EntriesFetchedResultsController.swift */; };
 		FB5689A023AEB6250083C5C1 /* EntriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56899F23AEB6250083C5C1 /* EntriesDataSource.swift */; };
+		FB5689A223B00F3D0083C5C1 /* CreateEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5689A123B00F3D0083C5C1 /* CreateEntryController.swift */; };
+		FB5689A423B075B70083C5C1 /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5689A323B075B70083C5C1 /* PhotoPickerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,6 @@
 		FB56897B23AD70520083C5C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB56897E23AD70520083C5C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB56898023AD70520083C5C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB56898B23AD727E0083C5C1 /* CreateEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEntryController.swift; sourceTree = "<group>"; };
 		FB56898D23AD79600083C5C1 /* MainPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageController.swift; sourceTree = "<group>"; };
 		FB56898F23AD7B9A0083C5C1 /* EntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
 		FB56899423AD81760083C5C1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -42,6 +42,8 @@
 		FB56899A23AEAF3A0083C5C1 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		FB56899C23AEB5840083C5C1 /* EntriesFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntriesFetchedResultsController.swift; path = DiaryApp/Controllers/EntriesFetchedResultsController.swift; sourceTree = SOURCE_ROOT; };
 		FB56899F23AEB6250083C5C1 /* EntriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesDataSource.swift; sourceTree = "<group>"; };
+		FB5689A123B00F3D0083C5C1 /* CreateEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateEntryController.swift; path = ../../../../../Documents/CreateEntryController.swift; sourceTree = "<group>"; };
+		FB5689A323B075B70083C5C1 /* PhotoPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoPickerManager.swift; path = ../../../../../Documents/PhotoPickerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				FB56898D23AD79600083C5C1 /* MainPageController.swift */,
-				FB56898B23AD727E0083C5C1 /* CreateEntryController.swift */,
+				FB5689A123B00F3D0083C5C1 /* CreateEntryController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				FB56899F23AEB6250083C5C1 /* EntriesDataSource.swift */,
+				FB5689A323B075B70083C5C1 /* PhotoPickerManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -201,12 +204,13 @@
 				FB56899B23AEAF3A0083C5C1 /* Status.swift in Sources */,
 				FB56897023AD70510083C5C1 /* AppDelegate.swift in Sources */,
 				FB56899823AEAD100083C5C1 /* Entry+CoreDataClass.swift in Sources */,
+				FB5689A223B00F3D0083C5C1 /* CreateEntryController.swift in Sources */,
 				FB56897223AD70510083C5C1 /* SceneDelegate.swift in Sources */,
-				FB56898C23AD727E0083C5C1 /* CreateEntryController.swift in Sources */,
 				FB56899023AD7B9A0083C5C1 /* EntryCell.swift in Sources */,
 				FB5689A023AEB6250083C5C1 /* EntriesDataSource.swift in Sources */,
 				FB56899923AEAD100083C5C1 /* Entry+CoreDataProperties.swift in Sources */,
 				FB56897A23AD70510083C5C1 /* DiaryApp.xcdatamodeld in Sources */,
+				FB5689A423B075B70083C5C1 /* PhotoPickerManager.swift in Sources */,
 				FB56899523AD81760083C5C1 /* CoreDataStack.swift in Sources */,
 				FB56899D23AEB5840083C5C1 /* EntriesFetchedResultsController.swift in Sources */,
 			);
