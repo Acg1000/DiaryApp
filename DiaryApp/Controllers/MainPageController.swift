@@ -23,6 +23,13 @@ class MainPageController: UITableViewController {
         return EntriesDataSource(fetchRequest: request, managedObjectContext: context, tableView: self.tableView)
     }()
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createEntry" {
+            let createViewController = segue.destination as? CreateEntryController
+            createViewController?.delegate = self
+            createViewController?.context = context
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,41 +38,49 @@ class MainPageController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
         tableView.dataSource = dataSource
+        tableView.delegate = self
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "createEntry" {
-//            let createEntryController = segue.destination as? CreateEntryController
-            
-        }
+    // MARK: DELEGATE METHODS
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedEntry = dataSource.entries[indexPath.row]
+        let editEntryController = storyboard?.instantiateViewController(identifier: "CreateEntryController") as! CreateEntryController
+//
+        editEntryController.isEditingEntry = true
+        editEntryController.prepareViewWith(selectedEntry)
+        editEntryController.context = context
+//
+        self.present(editEntryController, animated: true, completion: nil)
+
     }
     
-    
+    func refreshData() {
+        dataSource = EntriesDataSource(fetchRequest: Entry.fetchRequest(), managedObjectContext: context, tableView: self.tableView)
+    }
+        
     func setCurrentDates() {
         dateFormatter.dateStyle = .full
         currentDate.text = dateFormatter.string(from: Date())
         navigationController?.title = dateFormatter.string(from: Date())
     }
-    
-    @IBAction func recordEntryPressed(_ sender: Any) {
-//        guard let storyboard = storyboard else { return }
-//
-//        let createEntryController = storyboard.instantiateViewController(withIdentifier: String(describing: CreateEntryController.self)) as! CreateEntryController
-//
-//        let navController = UINavigationController(rootViewController: createEntryController)
-//        navigationController?.present(navController, animated: true, completion: nil)
-    }
-    
-    @IBAction func savePressed(_ sender: Any) {
+}
+
+extension MainPageController: WasDismissedDelegate {
+    func wasDismissed(wasEditing: Bool) {
         
-//        if let text = entryTextField.text {
-//
-//            print("save pressed")
-//
-//            let _ = Entry.with(text, status: .happy, location: nil, photo: nil, in: context)
-//            context.saveChanges()
-//            tableView.reloadData()
-//        }
+        if wasEditing {
+            print("was editing")
+            
+            refreshData()
+            tableView.dataSource = dataSource
+            tableView.reloadData()
+            
+        } else {
+            refreshData()
+            tableView.dataSource = dataSource
+            tableView.reloadData()
+        }
     }
 }

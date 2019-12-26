@@ -44,6 +44,8 @@ class EntriesDataSource: NSObject, UITableViewDataSource {
         if entry.photo != nil {
             cell.mainImageView.isHidden = false
             cell.mainImageView.image = entry.photo
+            cell.mainImageView.layer.cornerRadius = 40
+            cell.mainImageView.layer.masksToBounds = true
             
             // Status Implementation
             if let status = entry.status {
@@ -76,6 +78,17 @@ class EntriesDataSource: NSObject, UITableViewDataSource {
         } else {
             cell.locationLabel.isHidden = true
             cell.locationIcon.isHidden = true
+//            cell.locationLabel.removeFromSuperview()
+//            cell.locationIcon.removeFromSuperview()
+//
+//            if (cell.descriptionLabel.bounds.height) >= 80 {
+//                cell.descriptionLabelBottomConstraint.constant = 16
+//
+//            } else {
+//                cell.mainImageView.addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: cell, attribute: .bottom, multiplier: 1, constant: 16))
+//
+//            }
+            
         }
         
         return cell

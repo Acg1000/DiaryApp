@@ -16,6 +16,7 @@ class EntryCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var locationIcon: UIImageView!
+    @IBOutlet weak var descriptionLabelBottomConstraint: NSLayoutConstraint!
     
     
     func setDate(date: Date) {

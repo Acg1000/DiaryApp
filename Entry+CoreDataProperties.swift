@@ -10,6 +10,7 @@
 import Foundation
 import CoreData
 import UIKit
+import CoreLocation
 
 
 extension Entry {
@@ -35,7 +36,7 @@ extension Entry {
         return String(describing: Entry.self)
     }
     
-    @nonobjc class func with(_ description: String, status: Status?, location: String?, photo: UIImage?, in context: NSManagedObjectContext) -> Entry {
+    @nonobjc class func with(_ description: String, status: Status?, location: CLPlacemark?, photo: UIImage?, in context: NSManagedObjectContext) -> Entry {
         
         print("in the with function")
         
@@ -45,7 +46,7 @@ extension Entry {
         entry.entryDescription = description
         
         if let photo = photo {
-            photo.jpegData(compressionQuality: 1.0)
+            entry.photoData = photo.jpegData(compressionQuality: 1.0)
         } else {
             entry.photoData = nil
         }
@@ -56,9 +57,22 @@ extension Entry {
             entry.status = nil
         }
         
-        entry.location = location
+        if let location = location, let name = location.name, let city = location.locality {
+            entry.location = "\(name), \(city)"
+
+        } else {
+            entry.status = nil
+        }
+        
         return entry
     }
+    
+//    @nonobjc class func edit(_ description: String, status: Status?, location: CLPlacemark?, photo: UIImage?, in context: NSManagedObjectContext) -> Entry {
+//        
+//        print("In the edit function")
+//        
+//        
+//    }
 }
 
 extension Entry {

@@ -34,6 +34,7 @@ class CoreDataStack {
 extension NSManagedObjectContext {
     func saveChanges() {
         if self.hasChanges {
+            print("had changes in context")
             do {
                 try save()
             } catch {

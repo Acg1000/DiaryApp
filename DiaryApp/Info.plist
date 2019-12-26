@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We use your location to allow the option to add places you&apos;ve been to your entries.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location to allow the option to add places you&apos;ve been to your entries.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We use your camera to add images to your diary entries. </string>
 	<key>CFBundleDevelopmentRegion</key>
