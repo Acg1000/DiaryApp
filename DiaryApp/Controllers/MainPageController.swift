@@ -47,11 +47,10 @@ class MainPageController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedEntry = dataSource.entries[indexPath.row]
         let editEntryController = storyboard?.instantiateViewController(identifier: "CreateEntryController") as! CreateEntryController
-//
         editEntryController.isEditingEntry = true
         editEntryController.prepareViewWith(selectedEntry)
         editEntryController.context = context
-//
+        
         self.present(editEntryController, animated: true, completion: nil)
 
     }
@@ -62,25 +61,19 @@ class MainPageController: UITableViewController {
         
     func setCurrentDates() {
         dateFormatter.dateStyle = .full
-        currentDate.text = dateFormatter.string(from: Date())
-        navigationController?.title = dateFormatter.string(from: Date())
+        let formattedDate = Array(dateFormatter.string(from: Date()).dropLast(6))
+        
+        currentDate.text = String(formattedDate)
+        navigationItem.title = String(formattedDate)
+//        navigationController?.title = dateFormatter.string(from: Date())
     }
 }
 
 extension MainPageController: WasDismissedDelegate {
-    func wasDismissed(wasEditing: Bool) {
+    func wasDismissed() {
         
-        if wasEditing {
-            print("was editing")
-            
-            refreshData()
-            tableView.dataSource = dataSource
-            tableView.reloadData()
-            
-        } else {
-            refreshData()
-            tableView.dataSource = dataSource
-            tableView.reloadData()
-        }
+        refreshData()
+        tableView.dataSource = dataSource
+        tableView.reloadData()
     }
 }
