@@ -42,11 +42,11 @@ class EntriesDataSource: NSObject, UITableViewDataSource {
         
         // Photo Implementation
         if entry.photo != nil {
-            let croppingSize = CGSize(width: 80, height: 80)
+//            let croppingSize = CGSize(width: 80, height: 80)
 
             cell.mainImageView.isHidden = false
-//            cell.mainImageView.image = entry.photo
-            cell.mainImageView.image = entry.photo?.resized(to: croppingSize)
+            cell.mainImageView.image = entry.photo
+//            cell.mainImageView.image = entry.photo?.resizeAndRotate(to: croppingSize, withOrientation: .right)
             cell.mainImageView.layer.cornerRadius = 40
             cell.mainImageView.layer.masksToBounds = true
             

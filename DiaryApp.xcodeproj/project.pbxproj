@@ -22,10 +22,10 @@
 		FB56899D23AEB5840083C5C1 /* EntriesFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56899C23AEB5840083C5C1 /* EntriesFetchedResultsController.swift */; };
 		FB5689A023AEB6250083C5C1 /* EntriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56899F23AEB6250083C5C1 /* EntriesDataSource.swift */; };
 		FB5689A223B00F3D0083C5C1 /* CreateEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5689A123B00F3D0083C5C1 /* CreateEntryController.swift */; };
-		FB5689A423B075B70083C5C1 /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5689A323B075B70083C5C1 /* PhotoPickerManager.swift */; };
-		FB5689A623B133990083C5C1 /* UIImage Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5689A523B133990083C5C1 /* UIImage Resizing.swift */; };
-		FB5689A823B14AD10083C5C1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5689A723B14AD10083C5C1 /* LocationManager.swift */; };
 		FB5689AA23B14D7D0083C5C1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5689A923B14D7D0083C5C1 /* Location.swift */; };
+		FB5F79FB23B539F600DE0939 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F79FA23B539F600DE0939 /* LocationManager.swift */; };
+		FB5F79FD23B53AC300DE0939 /* UIImage Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F79FC23B53AC300DE0939 /* UIImage Resizing.swift */; };
+		FB5F79FF23B53AE800DE0939 /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F79FE23B53AE800DE0939 /* PhotoPickerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,10 +46,10 @@
 		FB56899C23AEB5840083C5C1 /* EntriesFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntriesFetchedResultsController.swift; path = DiaryApp/Controllers/EntriesFetchedResultsController.swift; sourceTree = SOURCE_ROOT; };
 		FB56899F23AEB6250083C5C1 /* EntriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesDataSource.swift; sourceTree = "<group>"; };
 		FB5689A123B00F3D0083C5C1 /* CreateEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateEntryController.swift; path = ../../../../../Documents/CreateEntryController.swift; sourceTree = "<group>"; };
-		FB5689A323B075B70083C5C1 /* PhotoPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoPickerManager.swift; path = ../../../../../Documents/PhotoPickerManager.swift; sourceTree = "<group>"; };
-		FB5689A523B133990083C5C1 /* UIImage Resizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImage Resizing.swift"; path = "../../../../../Documents/UIImage Resizing.swift"; sourceTree = "<group>"; };
-		FB5689A723B14AD10083C5C1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = ../../../../../Documents/LocationManager.swift; sourceTree = "<group>"; };
 		FB5689A923B14D7D0083C5C1 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Location.swift; path = ../../../../../Documents/Location.swift; sourceTree = "<group>"; };
+		FB5F79FA23B539F600DE0939 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		FB5F79FC23B53AC300DE0939 /* UIImage Resizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage Resizing.swift"; sourceTree = "<group>"; };
+		FB5F79FE23B53AE800DE0939 /* PhotoPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,9 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				FB56899F23AEB6250083C5C1 /* EntriesDataSource.swift */,
-				FB5689A323B075B70083C5C1 /* PhotoPickerManager.swift */,
-				FB5689A523B133990083C5C1 /* UIImage Resizing.swift */,
-				FB5689A723B14AD10083C5C1 /* LocationManager.swift */,
+				FB5F79FA23B539F600DE0939 /* LocationManager.swift */,
+				FB5F79FC23B53AC300DE0939 /* UIImage Resizing.swift */,
+				FB5F79FE23B53AE800DE0939 /* PhotoPickerManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -210,19 +210,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB56898E23AD79600083C5C1 /* MainPageController.swift in Sources */,
+				FB5F79FB23B539F600DE0939 /* LocationManager.swift in Sources */,
 				FB56899B23AEAF3A0083C5C1 /* Status.swift in Sources */,
 				FB5689AA23B14D7D0083C5C1 /* Location.swift in Sources */,
-				FB5689A823B14AD10083C5C1 /* LocationManager.swift in Sources */,
 				FB56897023AD70510083C5C1 /* AppDelegate.swift in Sources */,
 				FB56899823AEAD100083C5C1 /* Entry+CoreDataClass.swift in Sources */,
 				FB5689A223B00F3D0083C5C1 /* CreateEntryController.swift in Sources */,
+				FB5F79FF23B53AE800DE0939 /* PhotoPickerManager.swift in Sources */,
 				FB56897223AD70510083C5C1 /* SceneDelegate.swift in Sources */,
 				FB56899023AD7B9A0083C5C1 /* EntryCell.swift in Sources */,
-				FB5689A623B133990083C5C1 /* UIImage Resizing.swift in Sources */,
+				FB5F79FD23B53AC300DE0939 /* UIImage Resizing.swift in Sources */,
 				FB5689A023AEB6250083C5C1 /* EntriesDataSource.swift in Sources */,
 				FB56899923AEAD100083C5C1 /* Entry+CoreDataProperties.swift in Sources */,
 				FB56897A23AD70510083C5C1 /* DiaryApp.xcdatamodeld in Sources */,
-				FB5689A423B075B70083C5C1 /* PhotoPickerManager.swift in Sources */,
 				FB56899523AD81760083C5C1 /* CoreDataStack.swift in Sources */,
 				FB56899D23AEB5840083C5C1 /* EntriesFetchedResultsController.swift in Sources */,
 			);
