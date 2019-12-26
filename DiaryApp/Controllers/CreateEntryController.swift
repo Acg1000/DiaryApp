@@ -89,6 +89,9 @@ class CreateEntryController: UIViewController {
             trashItem.isEnabled = false
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         self.photoPickerManager = PhotoPickerManager(presentingViewController: self, delegate: self)
         addLocationButton.setTitle("", for: .disabled)
     }
@@ -147,16 +150,16 @@ class CreateEntryController: UIViewController {
         }
     }
     
-    func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if view.frame.origin.y == 0 {
+            if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= keyboardSize.height
             }
         }
     }
 
-    func keyboardWillHide(notification: NSNotification) {
-        if view.frame.origin.y != 0 {
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
     }
