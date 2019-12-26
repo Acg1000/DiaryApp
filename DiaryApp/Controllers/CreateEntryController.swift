@@ -10,6 +10,7 @@
 import UIKit
 import MobileCoreServices
 import CoreData
+import CoreLocation
 
 class CreateEntryController: UIViewController {
 
@@ -37,7 +38,7 @@ class CreateEntryController: UIViewController {
 
     // MARK: Creation variables
     var currentDate = Date()
-    var currentLocation: Location? = nil
+    var currentLocation: CLPlacemark? = nil
     var context: NSManagedObjectContext!
     var status: Status? = nil
     var isEditingEntry = false
@@ -225,7 +226,7 @@ class CreateEntryController: UIViewController {
                 present(alertController, animated: true, completion: nil)
                 
             } else {
-                let entry = Entry.with(description, status: status, location: currentLocation?.placemark, photo: image, in: context)
+                let entry = Entry.with(description, status: status, location: currentLocation, photo: image, in: context)
                 print(entry)
                 context.saveChanges()
                 
@@ -260,6 +261,10 @@ class CreateEntryController: UIViewController {
     @IBAction func addLocationPressed(_ sender: Any) {
         locationManager.requestLocation()
         addLocationButton.setTitle("Retrieving location...", for: .normal)
+        
+        if isEditingEntry {
+            locationLabel.text = ""
+        }
     }
     
     // MARK: Mood Buttons
@@ -341,13 +346,17 @@ protocol WasDismissedDelegate {
 
 // Delegate methods when location comes back
 extension CreateEntryController: LocationManagerDelegate {
-    func obtainedLocation(_ location: Location) {
+    func obtainedLocation(_ location: CLPlacemark) {
 
         currentLocation = location
         addLocationButton.isEnabled = false
         
-        if let name = location.placemark.name, let locality = location.placemark.locality {
+        if let name = location.name, let locality = location.locality {
             locationLabel.text = "\(name), \(locality)"
+            
+            if isEditingEntry {
+                editingLocation = "\(name), \(locality)"
+            }
         }
     }
     

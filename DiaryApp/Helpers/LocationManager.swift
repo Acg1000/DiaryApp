@@ -105,9 +105,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         getPlacemark(from: location) { placemark in
             guard let placemark = placemark else { return }
             
-            let locationWithPlacemark = Location(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, placemark: placemark)
-            
-            self.delegate?.obtainedLocation(locationWithPlacemark)
+            self.delegate?.obtainedLocation(placemark)
 
         }
     }
@@ -125,7 +123,7 @@ protocol LocationPermissionsDelegate: class {
 }
 
 protocol LocationManagerDelegate: class {
-    func obtainedLocation(_ location: Location)
+    func obtainedLocation(_ location: CLPlacemark)
     func failedWithError(_ error: LocationError)
 }
 

@@ -10,8 +10,8 @@
 import Foundation
 import CoreLocation
 
-struct Location {
-    let latitude: Double
-    let longitude: Double
-    let placemark: CLPlacemark
-}
+//struct Location {
+//    let latitude: Double
+//    let longitude: Double
+//    let placemark: CLPlacemark
+//}
