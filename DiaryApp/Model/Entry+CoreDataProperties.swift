@@ -59,9 +59,10 @@ extension Entry {
             entry.location = "\(name), \(city)"
 
         } else {
-            entry.status = nil
+            entry.location = nil
         }
         
+//        context.saveChanges()
         return entry
     }
 }

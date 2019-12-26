@@ -14,6 +14,7 @@ class CoreDataStack {
     lazy var managedObjectContext: NSManagedObjectContext = {
         let container = self.persistentContainer
         return container.viewContext
+        print("GETTING THE CONTEXT")
     }()
 
     private lazy var persistentContainer: NSPersistentContainer = {
@@ -37,6 +38,7 @@ extension NSManagedObjectContext {
             print("had changes in context")
             do {
                 try save()
+                print("SAVED CHANGES")
             } catch {
                 fatalError("Error: \(error.localizedDescription)")
             }

@@ -50,26 +50,26 @@ class EntriesDataSource: NSObject, UITableViewDataSource {
             cell.mainImageView.layer.cornerRadius = 40
             cell.mainImageView.layer.masksToBounds = true
             
-            // Status Implementation
-            if let status = entry.status {
-                let statusEnum = Status(rawValue: status)
-                cell.statusIcon.isHidden = false
+        } else {
+            cell.mainImageView.image = #imageLiteral(resourceName: "icn_image")
+        }
+        
+        // Status Implementation
+        if let status = entry.status {
+            let statusEnum = Status(rawValue: status)
+            cell.statusIcon.isHidden = false
 
-                
-                switch statusEnum {
-                case .happy: cell.statusIcon.image = #imageLiteral(resourceName: "icn_happy")
-                case .average: cell.statusIcon.image = #imageLiteral(resourceName: "icn_average")
-                case .bad: cell.statusIcon.image = #imageLiteral(resourceName: "icn_bad")
-                case .none:
-                    cell.statusIcon.isHidden = true
-                }
-                
-            } else {
+            
+            switch statusEnum {
+            case .happy: cell.statusIcon.image = #imageLiteral(resourceName: "icn_happy")
+            case .average: cell.statusIcon.image = #imageLiteral(resourceName: "icn_average")
+            case .bad: cell.statusIcon.image = #imageLiteral(resourceName: "icn_bad")
+            case .none:
                 cell.statusIcon.isHidden = true
             }
             
         } else {
-            cell.mainImageView.isHidden = true
+            cell.statusIcon.isHidden = true
         }
         
         
