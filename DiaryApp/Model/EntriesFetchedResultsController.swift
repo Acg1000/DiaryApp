@@ -5,6 +5,7 @@
 //  Created by Andrew Graves on 12/21/19.
 //  Copyright © 2019 Andrew Graves. All rights reserved.
 //
+//  FUNCTION: Create fetch requests for getting objects from COREDATA
 
 import CoreData
 

@@ -5,15 +5,15 @@
 //  Created by Andrew Graves on 12/22/19.
 //  Copyright © 2019 Andrew Graves. All rights reserved.
 //
+//  FUNCTION: Setup the CreateEntryController
 
 import UIKit
 import MobileCoreServices
 import CoreData
 
-
-
 class CreateEntryController: UIViewController {
 
+    // MARK: Outlets
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var addLocationButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
@@ -26,6 +26,7 @@ class CreateEntryController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var trashItem: UIBarButtonItem!
     
+    // MARK: Helper classes
     var photoPickerManager: PhotoPickerManager!
     let dateFormatter = DateFormatter()
     let imagePickerController = UIImagePickerController()
@@ -34,15 +35,11 @@ class CreateEntryController: UIViewController {
         return LocationManager(delegate: self, permissionsDelegate: nil)
     }()
 
-    // Creation Variables
+    // MARK: Creation variables
     var currentDate = Date()
     var currentLocation: Location? = nil
     var context: NSManagedObjectContext!
-    var status: Status? = nil {
-        didSet {
-            print("STATUS SET TO: \(status)")
-        }
-    }
+    var status: Status? = nil
     var isEditingEntry = false
     var imagePickerSource: UIImagePickerController.SourceType? = nil
     var image: UIImage? {
@@ -50,23 +47,13 @@ class CreateEntryController: UIViewController {
             if image != nil {
                 imageButton.layer.cornerRadius = 50
                 imageButton.layer.masksToBounds = true
-//                imageButton.setImage(image?.resized(to: CGSize(width: 50, height: 50)), for: .normal)
-                
                 imageButton.setImage(image, for: .normal)
 
-                
-//                switch imagePickerController.sourceType {
-//                case .camera:
-//                    imageButton.setImage(image?.resizeAndRotate(to: CGSize(width: 50, height: 50), withOrientation: .right), for: .normal)
-//                case .photoLibrary, .savedPhotosAlbum:
-//                    imageButton.setImage(image?.resized(to: CGSize(width: 50, height: 50)), for: .normal)
-//
-//                }
             }
         }
     }
     
-    // EDITING VARIABLES
+    // MARK: Editing Variables
     var editingDateString: String!
     var editingImage: UIImage? = nil
     var editingStatus: Status? = nil
@@ -89,6 +76,7 @@ class CreateEntryController: UIViewController {
             trashItem.isEnabled = false
         }
         
+        // Keyboard notification manager
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
@@ -103,8 +91,9 @@ class CreateEntryController: UIViewController {
         dateLabel.text = String(formattedDate.dropLast(6))
     }
     
+    // MARK: PREPERATION METHODS
+    // Assigns the variables to the different outlets for editing
     func setupViewForEditing() {
-        print("Setting up the view for editing")
         // DATE
         dateLabel.text = editingDateString
         
@@ -132,6 +121,7 @@ class CreateEntryController: UIViewController {
         }
     }
     
+    // Assigns all the variables with the different variables from an entry
     func prepareViewWith(_ entry: Entry) {
         print("preparing the view with attributes")
         isEditingEntry = true
@@ -175,7 +165,7 @@ class CreateEntryController: UIViewController {
     }
     
     
-    // MARK: Button Functions...
+    // MARK: BUTTON FUNCTIONS
     
     @IBAction func imageButtonTapped(_ sender: Any) {
         
@@ -245,11 +235,13 @@ class CreateEntryController: UIViewController {
         }
     }
     
+    // dismisses the controller if cancel is pressed
     @IBAction func cancelPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         delegate?.wasDismissed()
     }
     
+    // deletes the entry if the controller is pressed
     @IBAction func trashPressed(_ sender: Any) {
         if let editingEntry = editingEntry {
             
@@ -264,11 +256,13 @@ class CreateEntryController: UIViewController {
         }
     }
     
-    
+    // modify location if its pressed
     @IBAction func addLocationPressed(_ sender: Any) {
         locationManager.requestLocation()
         addLocationButton.setTitle("Retrieving location...", for: .normal)
     }
+    
+    // MARK: Mood Buttons
     
     @IBAction func happyPressed(_ sender: Any) {
         if isEditingEntry {
@@ -345,6 +339,7 @@ protocol WasDismissedDelegate {
     func wasDismissed()
 }
 
+// Delegate methods when location comes back
 extension CreateEntryController: LocationManagerDelegate {
     func obtainedLocation(_ location: Location) {
 
@@ -354,8 +349,6 @@ extension CreateEntryController: LocationManagerDelegate {
         if let name = location.placemark.name, let locality = location.placemark.locality {
             locationLabel.text = "\(name), \(locality)"
         }
-//        locationLabel.text = "\(location.placemark.name), \(location.placemark.locality)"
-        
     }
     
     func failedWithError(_ error: LocationError) {
@@ -365,11 +358,10 @@ extension CreateEntryController: LocationManagerDelegate {
         case .disallowedByUser: print("disallowed by user")
         case .unableToFindLocation: print("unable to find location")
         case .unknownError: print("unknown error")
-        }
-//        print("\(error) \n \(error.localizedDescription)")
+            }
+        
         alertView.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         present(alertView, animated: true, completion: nil)
-        
     }
 }
 

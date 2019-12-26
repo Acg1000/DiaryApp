@@ -5,6 +5,7 @@
 //  Created by Andrew Graves on 12/20/19.
 //  Copyright © 2019 Andrew Graves. All rights reserved.
 //
+//  FUNCTION: Sets up the cell on the main screen with its attributes
 
 import UIKit
 

@@ -5,6 +5,7 @@
 //  Created by Andrew Graves on 12/22/19.
 //  Copyright © 2019 Andrew Graves. All rights reserved.
 //
+//  FUNCTION: Manages the delegate methods for picking photos from the camera and library
 
 import UIKit
 import MobileCoreServices
@@ -48,8 +49,6 @@ class PhotoPickerManager: NSObject {
         controller.dismiss(animated: true, completion: nil)
         
         if image != nil {
-            let croppingSize = CGSize(width: 100, height: 100)
-//            self.delegate?.didSelect(image: image?.resized(to: croppingSize))
             self.delegate?.didSelect(image: image)
 
         }

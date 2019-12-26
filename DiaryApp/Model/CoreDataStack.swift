@@ -5,6 +5,7 @@
 //  Created by Pasan Premaratne on 9/26/17.
 //  Copyright © 2017 Treehouse. All rights reserved.
 //
+//  PURPOSE: Managed the CoreDataStack and allows for use of saving and getting the context
 
 import Foundation
 import CoreData
@@ -14,7 +15,6 @@ class CoreDataStack {
     lazy var managedObjectContext: NSManagedObjectContext = {
         let container = self.persistentContainer
         return container.viewContext
-        print("GETTING THE CONTEXT")
     }()
 
     private lazy var persistentContainer: NSPersistentContainer = {
@@ -35,10 +35,8 @@ class CoreDataStack {
 extension NSManagedObjectContext {
     func saveChanges() {
         if self.hasChanges {
-            print("had changes in context")
             do {
                 try save()
-                print("SAVED CHANGES")
             } catch {
                 fatalError("Error: \(error.localizedDescription)")
             }

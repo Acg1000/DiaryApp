@@ -5,6 +5,7 @@
 //  Created by Andrew Graves on 12/23/19.
 //  Copyright © 2019 Andrew Graves. All rights reserved.
 //
+//  FUNCTION: adds methods that allow for modification of UIImages
 
 import UIKit
 

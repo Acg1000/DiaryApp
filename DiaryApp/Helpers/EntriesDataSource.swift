@@ -5,6 +5,7 @@
 //  Created by Andrew Graves on 12/21/19.
 //  Copyright © 2019 Andrew Graves. All rights reserved.
 //
+//  FUNCTION: Serves as the DATASOURCE for the MainPageController
 
 import Foundation
 import CoreData
@@ -42,11 +43,9 @@ class EntriesDataSource: NSObject, UITableViewDataSource {
         
         // Photo Implementation
         if entry.photo != nil {
-//            let croppingSize = CGSize(width: 80, height: 80)
 
             cell.mainImageView.isHidden = false
             cell.mainImageView.image = entry.photo
-//            cell.mainImageView.image = entry.photo?.resizeAndRotate(to: croppingSize, withOrientation: .right)
             cell.mainImageView.layer.cornerRadius = 40
             cell.mainImageView.layer.masksToBounds = true
             
@@ -81,19 +80,8 @@ class EntriesDataSource: NSObject, UITableViewDataSource {
         } else {
             cell.locationLabel.isHidden = true
             cell.locationIcon.isHidden = true
-//            cell.locationLabel.removeFromSuperview()
-//            cell.locationIcon.removeFromSuperview()
-//
-//            if (cell.descriptionLabel.bounds.height) >= 80 {
-//                cell.descriptionLabelBottomConstraint.constant = 16
-//
-//            } else {
-//                cell.mainImageView.addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: cell, attribute: .bottom, multiplier: 1, constant: 16))
-//
-//            }
             
         }
-        
         return cell
     }
 }
