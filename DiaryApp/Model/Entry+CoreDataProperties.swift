@@ -28,6 +28,7 @@ extension Entry {
     @NSManaged public var location: String?
     @NSManaged public var photoData: Data?
     @NSManaged public var status: String?
+    @NSManaged public var lastEdited: Date
 
 }
 
@@ -41,6 +42,7 @@ extension Entry {
         let entry = NSEntityDescription.insertNewObject(forEntityName: Entry.entityName, into: context) as! Entry
         
         entry.date = Date()
+        entry.lastEdited = Date()
         entry.entryDescription = description
         
         if let photo = photo {
@@ -62,7 +64,6 @@ extension Entry {
             entry.location = nil
         }
         
-//        context.saveChanges()
         return entry
     }
 }

@@ -3,11 +3,12 @@
     <entity name="Entry" representedClassName="Entry" syncable="YES">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="entryDescription" attributeType="String"/>
+        <attribute name="lastEdited" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="location" optional="YES" attributeType="String"/>
         <attribute name="photoData" optional="YES" attributeType="Binary"/>
         <attribute name="status" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Entry" positionX="-45" positionY="0" width="128" height="118"/>
+        <element name="Entry" positionX="-45" positionY="0" width="128" height="133"/>
     </elements>
 </model>

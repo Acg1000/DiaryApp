@@ -26,6 +26,7 @@ class CreateEntryController: UIViewController {
     @IBOutlet weak var navigationBarTitle: UINavigationItem!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var trashItem: UIBarButtonItem!
+    @IBOutlet weak var lastEditedLabel: UILabel!
     
     // MARK: Helper classes
     var photoPickerManager: PhotoPickerManager!
@@ -38,6 +39,7 @@ class CreateEntryController: UIViewController {
 
     // MARK: Creation variables
     var currentDate = Date()
+    var lastEditedDateString: String!
     var currentLocation: CLPlacemark? = nil
     var context: NSManagedObjectContext!
     var status: Status? = nil
@@ -90,6 +92,8 @@ class CreateEntryController: UIViewController {
         dateFormatter.dateStyle = .full
         let formattedDate = Array(dateFormatter.string(from: currentDate))
         dateLabel.text = String(formattedDate.dropLast(6))
+        
+        lastEditedLabel.text = ""
     }
     
     // MARK: PREPERATION METHODS
@@ -97,6 +101,7 @@ class CreateEntryController: UIViewController {
     func setupViewForEditing() {
         // DATE
         dateLabel.text = editingDateString
+        lastEditedLabel.text = "Last edited \(lastEditedDateString!)"
         
         // IMAGE
         image = editingImage
@@ -131,6 +136,9 @@ class CreateEntryController: UIViewController {
         dateFormatter.dateStyle = .full
         let formattedDate = Array(dateFormatter.string(from: entry.date))
         editingDateString = String(formattedDate.dropLast(6))
+        
+        let formattedLastEditedDate = Array(dateFormatter.string(from: entry.lastEdited))
+        lastEditedDateString = String(formattedLastEditedDate.dropLast(6))
         
         editingImage = entry.photo
         editingDescription = entry.entryDescription
@@ -186,6 +194,8 @@ class CreateEntryController: UIViewController {
 
         if isEditingEntry {
             if let editingEntry = editingEntry {
+                // Edited Date
+                editingEntry.setValue(lastEditedDateString, forKey: "lastEdited")
                 
                 // DESCRIPTION
                 if description.isEmpty {
