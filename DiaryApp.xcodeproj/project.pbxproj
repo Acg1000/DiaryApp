@@ -16,8 +16,6 @@
 		FB56898E23AD79600083C5C1 /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56898D23AD79600083C5C1 /* MainPageController.swift */; };
 		FB56899023AD7B9A0083C5C1 /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56898F23AD7B9A0083C5C1 /* EntryCell.swift */; };
 		FB56899523AD81760083C5C1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56899423AD81760083C5C1 /* CoreDataStack.swift */; };
-		FB56899823AEAD100083C5C1 /* Entry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56899623AEAD100083C5C1 /* Entry+CoreDataClass.swift */; };
-		FB56899923AEAD100083C5C1 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56899723AEAD100083C5C1 /* Entry+CoreDataProperties.swift */; };
 		FB56899B23AEAF3A0083C5C1 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56899A23AEAF3A0083C5C1 /* Status.swift */; };
 		FB56899D23AEB5840083C5C1 /* EntriesFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56899C23AEB5840083C5C1 /* EntriesFetchedResultsController.swift */; };
 		FB5689A023AEB6250083C5C1 /* EntriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56899F23AEB6250083C5C1 /* EntriesDataSource.swift */; };
@@ -26,6 +24,8 @@
 		FB5F79FB23B539F600DE0939 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F79FA23B539F600DE0939 /* LocationManager.swift */; };
 		FB5F79FD23B53AC300DE0939 /* UIImage Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F79FC23B53AC300DE0939 /* UIImage Resizing.swift */; };
 		FB5F79FF23B53AE800DE0939 /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F79FE23B53AE800DE0939 /* PhotoPickerManager.swift */; };
+		FB5F7A0223B53C1300DE0939 /* Entry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F7A0023B53C1300DE0939 /* Entry+CoreDataClass.swift */; };
+		FB5F7A0323B53C1300DE0939 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F7A0123B53C1300DE0939 /* Entry+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +40,6 @@
 		FB56898D23AD79600083C5C1 /* MainPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageController.swift; sourceTree = "<group>"; };
 		FB56898F23AD7B9A0083C5C1 /* EntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
 		FB56899423AD81760083C5C1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		FB56899623AEAD100083C5C1 /* Entry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		FB56899723AEAD100083C5C1 /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		FB56899A23AEAF3A0083C5C1 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		FB56899C23AEB5840083C5C1 /* EntriesFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntriesFetchedResultsController.swift; path = DiaryApp/Controllers/EntriesFetchedResultsController.swift; sourceTree = SOURCE_ROOT; };
 		FB56899F23AEB6250083C5C1 /* EntriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesDataSource.swift; sourceTree = "<group>"; };
@@ -50,6 +48,8 @@
 		FB5F79FA23B539F600DE0939 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FB5F79FC23B53AC300DE0939 /* UIImage Resizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage Resizing.swift"; sourceTree = "<group>"; };
 		FB5F79FE23B53AE800DE0939 /* PhotoPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerManager.swift; sourceTree = "<group>"; };
+		FB5F7A0023B53C1300DE0939 /* Entry+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FB5F7A0123B53C1300DE0939 /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +98,9 @@
 		FB56898623AD71B90083C5C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FB5F7A0023B53C1300DE0939 /* Entry+CoreDataClass.swift */,
+				FB5F7A0123B53C1300DE0939 /* Entry+CoreDataProperties.swift */,
 				FB56899C23AEB5840083C5C1 /* EntriesFetchedResultsController.swift */,
-				FB56899623AEAD100083C5C1 /* Entry+CoreDataClass.swift */,
-				FB56899723AEAD100083C5C1 /* Entry+CoreDataProperties.swift */,
 				FB56899423AD81760083C5C1 /* CoreDataStack.swift */,
 				FB56897823AD70510083C5C1 /* DiaryApp.xcdatamodeld */,
 				FB56899A23AEAF3A0083C5C1 /* Status.swift */,
@@ -214,16 +214,16 @@
 				FB56899B23AEAF3A0083C5C1 /* Status.swift in Sources */,
 				FB5689AA23B14D7D0083C5C1 /* Location.swift in Sources */,
 				FB56897023AD70510083C5C1 /* AppDelegate.swift in Sources */,
-				FB56899823AEAD100083C5C1 /* Entry+CoreDataClass.swift in Sources */,
 				FB5689A223B00F3D0083C5C1 /* CreateEntryController.swift in Sources */,
+				FB5F7A0323B53C1300DE0939 /* Entry+CoreDataProperties.swift in Sources */,
 				FB5F79FF23B53AE800DE0939 /* PhotoPickerManager.swift in Sources */,
 				FB56897223AD70510083C5C1 /* SceneDelegate.swift in Sources */,
 				FB56899023AD7B9A0083C5C1 /* EntryCell.swift in Sources */,
 				FB5F79FD23B53AC300DE0939 /* UIImage Resizing.swift in Sources */,
 				FB5689A023AEB6250083C5C1 /* EntriesDataSource.swift in Sources */,
-				FB56899923AEAD100083C5C1 /* Entry+CoreDataProperties.swift in Sources */,
 				FB56897A23AD70510083C5C1 /* DiaryApp.xcdatamodeld in Sources */,
 				FB56899523AD81760083C5C1 /* CoreDataStack.swift in Sources */,
+				FB5F7A0223B53C1300DE0939 /* Entry+CoreDataClass.swift in Sources */,
 				FB56899D23AEB5840083C5C1 /* EntriesFetchedResultsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
