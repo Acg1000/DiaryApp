@@ -30,6 +30,14 @@ class EntriesDataSource: NSObject, UITableViewDataSource {
         self.fetchedResultsController.delegate = self
     }
     
+    func refreshData() {
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Fetch request or context was invalid.")
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 0
 

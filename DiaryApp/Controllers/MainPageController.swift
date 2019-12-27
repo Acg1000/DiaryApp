@@ -62,7 +62,7 @@ class MainPageController: UITableViewController {
     
     // refetches the data from the datasource
     func refreshData() {
-        dataSource = EntriesDataSource(fetchRequest: Entry.fetchRequest(), managedObjectContext: context, tableView: self.tableView)
+        dataSource.refreshData()
     }
         
     // gets the current date and uses it throughout the view
@@ -76,6 +76,8 @@ class MainPageController: UITableViewController {
 }
 
 // When the CreateEntryController is dismissed then do these things
+// This serves as a trigger to refresh the data when the CreateEntryController is dismissed because this current view does not reload when it is
+
 extension MainPageController: WasDismissedDelegate {
     func wasDismissed() {
         

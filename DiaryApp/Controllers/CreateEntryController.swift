@@ -40,7 +40,7 @@ class CreateEntryController: UIViewController {
     // MARK: Creation variables
     var currentDate = Date()
     var lastEditedDateString: String!
-    var currentLocation: CLPlacemark? = nil
+    var currentLocation: Location? = nil
     var context: NSManagedObjectContext!
     var status: Status? = nil
     var isEditingEntry = false
@@ -198,9 +198,9 @@ class CreateEntryController: UIViewController {
                 
                 // DESCRIPTION
                 if description.isEmpty {
-                    let alertController = UIAlertController(title: "Invalid description", message: "Please enter a valid description to save this entry.", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "dismiss", style: .cancel, handler: nil))
-                    present(alertController, animated: true, completion: nil)
+                    showAlert(withTitle: "Invalid Description", andBody: "Please enter a valid description to save this entry.")
+                    return
+
                 } else {
                     editingEntry.setValue(description, forKey: "entryDescription")
 
@@ -230,10 +230,8 @@ class CreateEntryController: UIViewController {
         } else {
             
             if description.isEmpty {
-                let alertController = UIAlertController(title: "Invalid description", message: "Please enter a valid description to save this entry.", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "dismiss", style: .cancel, handler: nil))
-                present(alertController, animated: true, completion: nil)
-                
+                showAlert(withTitle: "Invalid Description", andBody: "Please enter a valid description to save this entry.")
+
             } else {
                 let entry = Entry.with(description, status: status, location: currentLocation, photo: image, in: context)
                 context.saveChanges()
@@ -306,6 +304,14 @@ class CreateEntryController: UIViewController {
         
         statusImage.image = #imageLiteral(resourceName: "icn_bad")
     }
+    
+    // MARK: Helper methods
+    
+    func showAlert(withTitle title: String, andBody body: String) {
+        let alertView = UIAlertController(title: title, message: body, preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "dismiss", style: .cancel, handler: nil))
+        present(alertView, animated: true, completion: nil)
+    }
 }
 
 
@@ -351,7 +357,7 @@ protocol WasDismissedDelegate {
 
 // Delegate methods when location comes back
 extension CreateEntryController: LocationManagerDelegate {
-    func obtainedLocation(_ location: CLPlacemark) {
+    func obtainedLocation(_ location: Location) {
 
         currentLocation = location
         addLocationButton.isEnabled = false

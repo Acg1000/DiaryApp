@@ -76,13 +76,17 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         manager.requestLocation()
     }
     
-    func getPlacemark(from location: CLLocation, completionHandler: @escaping (CLPlacemark?) -> Void) {
+    func getPlacemark(from location: CLLocation, completionHandler: @escaping (Location?) -> Void) {
         let geocoder = CLGeocoder()
 
         geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
             if error == nil {
-                let location = placemarks?[0]
-                completionHandler(location)
+                let placemark = placemarks?[0]
+                let name = placemark?.name
+                let locality = placemark?.locality
+                let locationWithName = Location(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, locality: locality, name: name)
+
+                completionHandler(locationWithName)
 
             } else {
                 completionHandler(nil)
@@ -139,7 +143,7 @@ protocol LocationPermissionsDelegate: class {
 }
 
 protocol LocationManagerDelegate: class {
-    func obtainedLocation(_ location: CLPlacemark)
+    func obtainedLocation(_ location: Location)
     func failedWithError(_ error: LocationError)
 }
 

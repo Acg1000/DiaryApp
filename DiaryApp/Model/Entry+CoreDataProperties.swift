@@ -37,7 +37,7 @@ extension Entry {
         return String(describing: Entry.self)
     }
     
-    @nonobjc class func with(_ description: String, status: Status?, location: CLPlacemark?, photo: UIImage?, in context: NSManagedObjectContext) -> Entry {
+    @nonobjc class func with(_ description: String, status: Status?, location: Location?, photo: UIImage?, in context: NSManagedObjectContext) -> Entry {
                 
 //        let entry = NSEntityDescription.insertNewObject(forEntityName: Entry.entityName, into: context) as! Entry
         let entry = Entry(context: context)
