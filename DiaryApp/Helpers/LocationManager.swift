@@ -104,11 +104,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             return
         }
         
-        print(error.code)
-        
         switch error.code {
         case .locationUnknown: delegate?.failedWithError(.unableToFindLocation)
-        case .network: delegate?.failedWithError(.unableToFindLocation); print("network error")
+        case .network: delegate?.failedWithError(.unableToFindLocation)
         case .denied: delegate?.failedWithError(.disallowedByUser)
         default: return
         }

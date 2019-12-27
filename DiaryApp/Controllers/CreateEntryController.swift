@@ -129,7 +129,6 @@ class CreateEntryController: UIViewController {
     
     // Assigns all the variables with the different variables from an entry
     func prepareViewWith(_ entry: Entry) {
-        print("preparing the view with attributes")
         isEditingEntry = true
         editingEntry = entry
         
@@ -237,7 +236,6 @@ class CreateEntryController: UIViewController {
                 
             } else {
                 let entry = Entry.with(description, status: status, location: currentLocation, photo: image, in: context)
-                print(entry)
                 context.saveChanges()
                 
                 dismiss(animated: true, completion: nil)
@@ -321,7 +319,6 @@ extension CreateEntryController: PhotoPickerManagerDelegate {
 
         switch imagePickerSource {
         case .camera:
-            print("Its camera")
             let image = image?.resizeAndRotate(to: size, withOrientation: .right)
             self.image = image
             
@@ -330,7 +327,6 @@ extension CreateEntryController: PhotoPickerManagerDelegate {
             }
             
         case .photoLibrary, .savedPhotosAlbum:
-            print("Its not camera")
             let image = image?.resized(to: size)
             self.image = image
             
@@ -339,7 +335,6 @@ extension CreateEntryController: PhotoPickerManagerDelegate {
             }
             
         case .none:
-            print("none")
             let image = image?.resized(to: size)
             self.image = image
             

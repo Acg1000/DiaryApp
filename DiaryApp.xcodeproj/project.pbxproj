@@ -23,7 +23,6 @@
 		FB5F79FF23B53AE800DE0939 /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F79FE23B53AE800DE0939 /* PhotoPickerManager.swift */; };
 		FB5F7A0223B53C1300DE0939 /* Entry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F7A0023B53C1300DE0939 /* Entry+CoreDataClass.swift */; };
 		FB5F7A0323B53C1300DE0939 /* Entry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F7A0123B53C1300DE0939 /* Entry+CoreDataProperties.swift */; };
-		FB5F7A0523B53C7400DE0939 /* EntriesFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F7A0423B53C7400DE0939 /* EntriesFetchedResultsController.swift */; };
 		FB5F7A0723B53CB400DE0939 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F7A0623B53CB400DE0939 /* Location.swift */; };
 		FB5F7A0923B550D400DE0939 /* CreateEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5F7A0823B550D400DE0939 /* CreateEntryController.swift */; };
 /* End PBXBuildFile section */
@@ -47,7 +46,6 @@
 		FB5F79FE23B53AE800DE0939 /* PhotoPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerManager.swift; sourceTree = "<group>"; };
 		FB5F7A0023B53C1300DE0939 /* Entry+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FB5F7A0123B53C1300DE0939 /* Entry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entry+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FB5F7A0423B53C7400DE0939 /* EntriesFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesFetchedResultsController.swift; sourceTree = "<group>"; };
 		FB5F7A0623B53CB400DE0939 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FB5F7A0823B550D400DE0939 /* CreateEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEntryController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,7 +98,6 @@
 			children = (
 				FB5F7A0023B53C1300DE0939 /* Entry+CoreDataClass.swift */,
 				FB5F7A0123B53C1300DE0939 /* Entry+CoreDataProperties.swift */,
-				FB5F7A0423B53C7400DE0939 /* EntriesFetchedResultsController.swift */,
 				FB56899423AD81760083C5C1 /* CoreDataStack.swift */,
 				FB56897823AD70510083C5C1 /* DiaryApp.xcdatamodeld */,
 				FB56899A23AEAF3A0083C5C1 /* Status.swift */,
@@ -218,7 +215,6 @@
 				FB5F79FF23B53AE800DE0939 /* PhotoPickerManager.swift in Sources */,
 				FB56897223AD70510083C5C1 /* SceneDelegate.swift in Sources */,
 				FB56899023AD7B9A0083C5C1 /* EntryCell.swift in Sources */,
-				FB5F7A0523B53C7400DE0939 /* EntriesFetchedResultsController.swift in Sources */,
 				FB5F79FD23B53AC300DE0939 /* UIImage Resizing.swift in Sources */,
 				FB5F7A0923B550D400DE0939 /* CreateEntryController.swift in Sources */,
 				FB5689A023AEB6250083C5C1 /* EntriesDataSource.swift in Sources */,

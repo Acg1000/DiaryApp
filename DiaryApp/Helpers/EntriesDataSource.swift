@@ -13,11 +13,18 @@ import UIKit
 
 class EntriesDataSource: NSObject, UITableViewDataSource {
     private let tableView: UITableView
-    private let fetchedResultsController: EntriesFetchedResultsController
+    private let fetchedResultsController: NSFetchedResultsController<Entry>
     
     init(fetchRequest: NSFetchRequest<Entry>, managedObjectContext context: NSManagedObjectContext, tableView: UITableView) {
         self.tableView = tableView
-        self.fetchedResultsController = EntriesFetchedResultsController(request: fetchRequest, context: context)
+        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Fetch request or context was invalid.")
+        }
+        
         super.init()
         
         self.fetchedResultsController.delegate = self

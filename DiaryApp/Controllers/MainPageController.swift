@@ -15,7 +15,7 @@ class MainPageController: UITableViewController {
     var container: NSPersistentContainer!
     var entries: [Entry] = []
     let dateFormatter = DateFormatter()
-    let context = CoreDataStack().managedObjectContext
+    let context = AppDelegate.shared.managedObjectContext
     
     @IBOutlet weak var currentDate: UILabel!
     

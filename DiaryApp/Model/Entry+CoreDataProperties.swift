@@ -39,7 +39,8 @@ extension Entry {
     
     @nonobjc class func with(_ description: String, status: Status?, location: CLPlacemark?, photo: UIImage?, in context: NSManagedObjectContext) -> Entry {
                 
-        let entry = NSEntityDescription.insertNewObject(forEntityName: Entry.entityName, into: context) as! Entry
+//        let entry = NSEntityDescription.insertNewObject(forEntityName: Entry.entityName, into: context) as! Entry
+        let entry = Entry(context: context)
         
         entry.date = Date()
         entry.lastEdited = Date()
