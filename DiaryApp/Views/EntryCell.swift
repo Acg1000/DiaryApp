@@ -39,5 +39,51 @@ class EntryCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func configure(withDate date: Date, description: String, photo: UIImage?, status: String?, location: String?) {
+        
+        setDate(date: date)
+        descriptionLabel.text = description
+        
+        
+        // Photo Implementation
+        if photo != nil {
+            mainImageView.isHidden = false
+            mainImageView.image = photo
+            mainImageView.layer.cornerRadius = 40
+            mainImageView.layer.masksToBounds = true
+            
+        } else {
+            mainImageView.image = #imageLiteral(resourceName: "icn_image")
+        }
+        
+        
+        // Status Implementation
+        if let status = status {
+            let statusEnum = Status(rawValue: status)
+            statusIcon.isHidden = false
+            
+            switch statusEnum {
+            case .happy: statusIcon.image = #imageLiteral(resourceName: "icn_happy")
+            case .average: statusIcon.image = #imageLiteral(resourceName: "icn_average")
+            case .bad: statusIcon.image = #imageLiteral(resourceName: "icn_bad")
+            case .none:
+                statusIcon.isHidden = true
+            }
+            
+        } else {
+            statusIcon.isHidden = true
+        }
+        
+        
+        // Location implementation
+        if let location = location {
+            locationLabel.isHidden = false
+            locationIcon.isHidden = false
+            locationLabel.text = location
+        } else {
+            locationLabel.isHidden = true
+            locationIcon.isHidden = true
+        }
+    }
 }

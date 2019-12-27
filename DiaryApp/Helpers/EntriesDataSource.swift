@@ -35,53 +35,8 @@ class EntriesDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let entry = fetchedResultsController.object(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath) as! EntryCell
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .full
+        cell.configure(withDate: entry.date, description: entry.entryDescription, photo: entry.photo, status: entry.status, location: entry.location)
         
-        cell.setDate(date: entry.date)
-        cell.descriptionLabel.text = entry.entryDescription
-        
-        // Photo Implementation
-        if entry.photo != nil {
-
-            cell.mainImageView.isHidden = false
-            cell.mainImageView.image = entry.photo
-            cell.mainImageView.layer.cornerRadius = 40
-            cell.mainImageView.layer.masksToBounds = true
-            
-        } else {
-            cell.mainImageView.image = #imageLiteral(resourceName: "icn_image")
-        }
-        
-        // Status Implementation
-        if let status = entry.status {
-            let statusEnum = Status(rawValue: status)
-            cell.statusIcon.isHidden = false
-
-            
-            switch statusEnum {
-            case .happy: cell.statusIcon.image = #imageLiteral(resourceName: "icn_happy")
-            case .average: cell.statusIcon.image = #imageLiteral(resourceName: "icn_average")
-            case .bad: cell.statusIcon.image = #imageLiteral(resourceName: "icn_bad")
-            case .none:
-                cell.statusIcon.isHidden = true
-            }
-            
-        } else {
-            cell.statusIcon.isHidden = true
-        }
-        
-        
-        // Location implementation
-        if let location = entry.location {
-            cell.locationLabel.isHidden = false
-            cell.locationIcon.isHidden = false
-            cell.locationLabel.text = location
-        } else {
-            cell.locationLabel.isHidden = true
-            cell.locationIcon.isHidden = true
-            
-        }
         return cell
     }
 }

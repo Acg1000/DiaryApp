@@ -195,7 +195,7 @@ class CreateEntryController: UIViewController {
         if isEditingEntry {
             if let editingEntry = editingEntry {
                 // Edited Date
-                editingEntry.setValue(lastEditedDateString, forKey: "lastEdited")
+                editingEntry.setValue(Date(), forKey: "lastEdited")
                 
                 // DESCRIPTION
                 if description.isEmpty {
@@ -378,6 +378,9 @@ extension CreateEntryController: LocationManagerDelegate {
         case .unableToFindLocation: print("unable to find location")
         case .unknownError: print("unknown error")
             }
+        
+        addLocationButton.setTitle("Add Location", for: .normal)
+        locationLabel.text = ""
         
         alertView.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         present(alertView, animated: true, completion: nil)

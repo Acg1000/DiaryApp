@@ -8,11 +8,13 @@
 //  FUNCTION: Manages the location and delegates through a helper class
 
 import CoreLocation
+import Network
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     private let manager = CLLocationManager()
     weak var permissionsDelegate: LocationPermissionsDelegate?
     weak var delegate: LocationManagerDelegate?
+    private let monitor = NWPathMonitor()
     
     init(delegate: LocationManagerDelegate?, permissionsDelegate: LocationPermissionsDelegate?) {
         self.delegate = delegate
@@ -20,6 +22,17 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         super.init()
         
         manager.delegate = self
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                print("Connection works correctly")
+                return
+            } else {
+                
+                DispatchQueue.main.async {
+                    delegate?.failedWithError(LocationError.unableToFindLocation)
+                }
+            }
+        }
     }
     
     static var isAuthorized: Bool {
@@ -42,6 +55,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func requestLocation() {
+        
+        // This checks to see if there is an active network connection
+        let queue = DispatchQueue(label: "Network Monitor")
+        monitor.start(queue: queue)
+        
         do {
             try requestLocationAuthorization()
 
